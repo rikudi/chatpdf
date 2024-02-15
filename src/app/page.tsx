@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { UserButton, auth } from "@clerk/nextjs";
 import Link from "next/link";
-import {LogIn} from 'lucide-react'
+import { LogIn } from 'lucide-react'
 import FileUpload from "@/components/FileUpload";
 
 export default async function Home() {
-  const {userId} = auth();
+  const { userId } = auth();
   const isAuth = !!userId
   return (
     <div className="w-screen min-h-screen bg-gradient-to-r from-blue-100 via-blue-300 to-blue-500">
@@ -21,20 +21,20 @@ export default async function Home() {
           <div className="flex my-6">
             {isAuth && <Button>Go to chats</Button>}
           </div>
-            <p className="mt-2 text-slate-600 max-w-xl">
-              Join millions of students, researchers, and professionals to answer questions and understand research using the power of AI.
-            </p>
+          <p className="mt-2 text-slate-600 max-w-xl">
+            Join millions of students, researchers, and professionals to answer questions and understand research using the power of AI.
+          </p>
 
-            <div className="w-full mt-4">
-              {isAuth ? (<FileUpload/>) : (
+          <div className="w-full mt-4">
+            {isAuth ? (<FileUpload />) : (
               <Link href='/sign-in'>
                 <Button>
                   Login to get started
                   <LogIn className="w-6 h-6 ml-2" />
                 </Button>
               </Link>
-              )}
-            </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
